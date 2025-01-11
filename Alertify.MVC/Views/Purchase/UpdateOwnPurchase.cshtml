@@ -1,0 +1,189 @@
+﻿@using Alertify.Application.UseCases.Products;
+@using Alertify.Application.UseCases.Purchases.Commands.UpdatePurchase;
+@using Alertify.Application.UseCases.Purchases;
+@using Alertify.Application.UseCases.ProductGivers;
+@using Alertify.Domain.Entities;
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+@model PurchaseResponse
+
+@{
+    ViewData["Title"] = "UpdatePurchase";
+    Layout = "_Layout";
+
+    ProductResponse[] Products = ViewData["Products"] as ProductResponse[];
+    ProductGiverResponse[] ProductGivers = ViewData["ProductGivers"] as ProductGiverResponse[];
+}
+
+<style>
+    #calculatedAmount {
+        background-color: yellow;
+        color: black;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 10px;
+        width: 250px;
+    }
+</style>
+
+<h3 class="header-text">Харид маълумотларини ўзгартириш</h3>
+<div id="calculatedAmount" class="mt-3"> Сумма:  </div>
+<hr />
+
+<form asp-controller="Purchase" asp-action="UpdateOwnPurchase" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="create-form mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6" style="overflow-y:scroll; width:50%; height:70vh">
+                <div class="custom-input">
+
+                    <div class="form-group mt-3">
+                        <label for="ProductFilter">Товар:</label>
+                        <select class="form-control" id="ProductId" name="ProductId" required>
+                            <option value="">Товарни Танланг</option>
+                            @foreach (var Product in Products)
+                            {
+                                <option value="@Product.Id" data-ProductGiver-info="@Product.Name"> @Product.Name </option>
+                            }
+                        </select>
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            $('#ProductId').select2({
+                                placeholder: "Товарни Танланг",
+                                allowClear: true,
+                                matcher: function (params, data) {
+                                    if ($.trim(params.term) === '') {
+                                        return data;
+                                    }
+
+                                    var term = $.trim(params.term).toLowerCase();
+                                    var text = data.text.toLowerCase();
+
+                                    if (text.indexOf(term) > -1) {
+                                        return data;
+                                    }
+
+                                    return null;
+                                }
+                            });
+
+                            var ProductId = "@Model.ProductId";
+                            if (ProductId) {
+                                $('#ProductId').val(ProductId).trigger('change');
+                            }
+                        });
+                    </script>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Amount" class="form-label">Миқдор (Кг / Дона):</label>
+                        <input asp-for="Amount" type="text" class="form-control" value="@Model.Amount">
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="SaleAmountCategoryPercentage" class="form-label">Чегирма (Кг / Дона):</label>
+                        <input asp-for="SaleAmountCategoryPercentage" type="text" class="form-control" value="@Model.SaleAmountCategoryPercentage">
+                        <span asp-validation-for="SaleAmountCategoryPercentage" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="PricePerAmount" class="form-label">Бир дона/кг учун нархи:</label>
+                        <input asp-for="PricePerAmount" type="text" class="form-control" value="@Model.PricePerAmount">
+                        <span asp-validation-for="PricePerAmount" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="SaleForTotalPrice" class="form-label">Умумий суммадан чегирма:</label>
+                        <input asp-for="SaleForTotalPrice" type="text" class="form-control" value="@Model.SaleForTotalPrice">
+                        <span asp-validation-for="SaleForTotalPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="ProductGiverFilter">Товар Олувчи:</label>
+                        <select class="form-control" id="ProductGiverId" name="ProductGiverId" required>
+                            <option value="">Товар Олувчини Танланг</option>
+                            @foreach (var ProductGiver in ProductGivers)
+                            {
+                                <option value="@ProductGiver.Id" data-ProductGiver-number="@ProductGiver.CompanyName">@ProductGiver.CompanyName / @ProductGiver.PhoneNumber</option>
+                            }
+                        </select>
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            $('#ProductGiverId').select2({
+                                placeholder: "Товар Берувчини Танланг",
+                                allowClear: true,
+                                matcher: function (params, data) {
+                                    if ($.trim(params.term) === '') {
+                                        return data;
+                                    }
+
+                                    var term = $.trim(params.term).toLowerCase();
+                                    var text = data.text.toLowerCase();
+
+                                    if (text.indexOf(term) > -1) {
+                                        return data;
+                                    }
+
+                                    return null;
+                                }
+                            });
+
+                            var ProductGiverId = "@Model.ProductGiverId";
+                            if (ProductGiverId) {
+                                $('#ProductGiverId').val(ProductGiverId).trigger('change');
+                            }
+                        });
+                    </script>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="PurchaseDate">Тўлов Куни:</label>
+                        <input asp-for="PurchaseDate" type="date" class="form-control" required value="@Model.PurchaseDate.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group button-group mt-3">
+                        <button type="submit" class="btn btn-success">Сақлаш</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+<script>
+    console.log("Script is running");
+
+    $(document).ready(function () {
+        function updateCalculatedAmount() {
+            // Get values from input fields
+            var amount = parseFloat($("#Amount").val()) || 0;
+            var saleAmountCategoryPercentage = parseFloat($("#SaleAmountCategoryPercentage").val()) || 0;
+            var pricePerAmount = parseFloat($("#PricePerAmount").val()) || 0;
+            var saleForTotalPrice = parseFloat($("#SaleForTotalPrice").val()) || 0;
+
+            var calculatedAmount = ((amount - saleAmountCategoryPercentage) * pricePerAmount) - saleForTotalPrice;
+
+            // Display the calculated amount
+            $("#calculatedAmount").text("Сумма: " + calculatedAmount.toFixed(2)); // You can format the amount as needed
+        }
+
+        // Attach the update function to input change events
+        $("#Amount, #SaleAmountCategoryPercentage, #PricePerAmount, #SaleForTotalPrice").on("input", updateCalculatedAmount);
+    });
+</script>

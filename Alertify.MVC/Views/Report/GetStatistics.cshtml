@@ -1,0 +1,332 @@
+﻿@model Alertify.Application.UseCases.Reports.StatisticResponse
+
+@{
+    Layout = "_Layout";
+}
+<style>
+
+    .statistics-section {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+        .statistics-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .statistics-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .statistics-section th {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .statistics-section td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+    h3 {
+        color: #007bff; /* Change the color to your preference */
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+
+        .table th {
+            background-color: #007bff; /* Change the background color to your preference */
+            color: #fff; /* Change the text color to your preference */
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+    .container {
+        padding: 20px;
+    }
+
+    .scrollable-content {
+        overflow-y: scroll;
+        max-height: 80vh;
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    h3 {
+        color: #007bff;
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+        background-color: #fff; /* Add a white background color */
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+
+    .table th {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd; /* Add a border to table cells */
+    }
+</style>
+
+<h3 class="text-center">Савдо Статистикаси</h3>
+<hr>
+<div class="container">
+    <div class="scrollable-content">
+        <div class="statistics-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Товар олувчилар: @Model.CountOfAllProductTakers</h2>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Oстаток: @string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTaker-Model.AmountOfAllPaymentsByProductTaker)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Товар олувчиларни барча харидлари</h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTaker)</p>
+                    <hr>
+
+                    <h5>Товар олувчиларни ҳозирги йиллик харидлари</h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastYear)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни ҳозирги ойлик харидлари</h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInCurrentMonth)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни охриги йетти кунлик харидлари</h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastWeek)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни бугунги харидлари</h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerToday)</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Товар олувчиларни барча тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsByProductTaker)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни ҳозирги йиллик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsByProductTakerInLastYear)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни ҳозирги ойлик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsByProductTakerInCurrentMonth)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни охриги йетти кунлик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsByProductTakerInLastWeek)</p>
+                     <hr>
+
+                    <h5>Товар олувчиларни бугунги тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsByProductTakerToday)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Товар берувчилар: @Model.CountOfAllProductGivers</h2>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Oстаток: @string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiver-Model.AmountOfAllPaymentsToProductGiver)</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Товар берувчилардан олинган барча харидлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiver)</p>
+                     <hr>
+
+                    <h5>Товар берувчилардан олинган йиллик харидлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInLastYear)</p>
+                     <hr>
+
+                    <h5>Товар берувчилардан олинган ҳозирги ойлик харидлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInCurrentMonth)</p>
+                     <hr>
+
+                    <h5>Товар берувчилардан олинган охриги йетти кунлик харидлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInLastWeek)</p>
+                     <hr>
+
+                    <h5>Товар берувчилардан олинган бугунги харидлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverToday)</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Товар берувчиларга барча тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsToProductGiver)</p>
+                     <hr>
+
+                    <h5>Товар берувчиларга ҳозирги йиллик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsToProductGiverInLastYear)</p>
+                     <hr>
+
+                    <h5>Товар берувчиларга ҳозирги ойлик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsToProductGiverInCurrentMonth)</p>
+                     <hr>
+
+                    <h5>Товар берувчиларга охриги йетти кунлик тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsToProductGiverInLastWeek)</p>
+                     <hr>
+
+                    <h5>Товар берувчиларга бугунги тўловлари </h5>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPaymentsToProductGiverToday)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics-section">
+            <h2>Даромад, харажат ва фойда</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <h6> Барча сотишдан тушган тушум</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTaker)</p>
+                    <hr>
+
+                    <h6>Ҳозирги йилги сотишдан тушган тушум</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastYear)</p>
+                    <hr>
+
+                    <h6>Ҳозирги ойгисотишдан тушган тушум</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInCurrentMonth)</p>
+                     <hr>
+
+                    <h6>Охирги йетти кунги сотишдан тушган тушум</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastWeek)</p>
+                     <hr>
+
+                    <h6>Бугунги сотишдан тушган тушум</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerToday)</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Товар олиш учун сарфланган барча харажат</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiver)</p>
+                    <hr>
+
+                    <h6>Ҳозирги йилги товар олиш учун сарфланган харажат</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInLastYear)</p>
+                     <hr>
+
+                    <h6>Ҳозирги ойги товар олиш учун сарфланган харажат</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInCurrentMonth)</p>
+                     <hr>
+
+                    <h6>Охирги йетти кунги товар олиш учун сарфланган харажат</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverInLastWeek)</p>
+                     <hr>
+
+                    <h6>Бугунги товар олиш учун сарфланган харажат</h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesToProductGiverToday)</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Барча қўшимча харажатлар </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllExpenses)</p>
+                    <hr>
+
+                    <h6>Ҳозирги йилда қилиган қўшимча харажатлар </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllExpensesInLastYear)</p>
+                     <hr>
+
+                    <h6>Ҳозирги ойда қилинган қўшимча харажатлар </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllExpensesInCurrentMonth)</p>
+                     <hr>
+
+                    <h6>Охирги йетти кунда қилинган қўшимча харажатлар </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllExpensesInLastWeek)</p>
+                     <hr>
+
+                    <h6>Бугунги қўшимча харажатлар </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllExpensesToday)</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Барча фойда </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTaker- Model.AmountOfAllPurchasesToProductGiver-Model.AmountOfAllExpenses)</p>
+                    <hr>
+
+                    <h6>Ҳозрги йилги фойда </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastYear- Model.AmountOfAllPurchasesToProductGiverInLastYear-Model.AmountOfAllExpensesInLastYear)</p>
+                     <hr>
+
+                    <h6>Ҳозрги ойги фойда </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInCurrentMonth- Model.AmountOfAllPurchasesToProductGiverInCurrentMonth-Model.AmountOfAllExpensesInCurrentMonth)</p>
+                     <hr>
+
+                    <h6>Охирги йетти кунги фойда </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerInLastWeek- Model.AmountOfAllPurchasesToProductGiverInLastWeek-Model.AmountOfAllExpensesInLastWeek)</p>
+                     <hr>
+
+                    <h6>Бугунги фойда </h6>
+                    <p>@string.Format("{0:N2}", Model.AmountOfAllPurchasesByProductTakerToday- Model.AmountOfAllPurchasesToProductGiverToday-Model.AmountOfAllExpensesToday)</p>
+                </div>
+            </div>
+        </div>
+@*
+        <div class="statistics-section">
+            <h5>Все контракты учредителей</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ФИО основателя</th>
+                        <th>Количество контрактов</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var founder in Model.AllContractsByFounders)
+                    {
+                        <tr>
+                            <td>@founder.Key</td>
+                            <td>@founder.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="statistics-section">
+            <h2>Квартиры и Клиенты</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Все Квартиры</h5>
+                    <p>@Model.CountOfAllHomes</p>
+                    <h5>Квартиры с Контрактом </h5>
+                    <p>@Model.CountOfHomeWithContract</p>
+                    <h5>Квартиры без Контрактом</h5>
+                    <p>@Model.CountOfHomeWithoutContract</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Все Клиенты</h5>
+                    <p>@Model.CountOfAllCustomers</p>
+                </div>
+            </div>
+        </div>*@
+
+    </div>
+</div>

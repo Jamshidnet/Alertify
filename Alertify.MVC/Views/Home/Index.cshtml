@@ -1,0 +1,47 @@
+﻿@using Alertify.Domain.Entities.Identity;
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject IConfiguration Configuration
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
+
+    <div class="d-flex align-items-center justify-content-center" id="main">
+        <img src="/5.png" class="logoStyle"/>
+    </div>
+
+     @if (User.IsInRole("Admin"))
+    {
+        <div class="button-container">
+            <a asp-controller="Report" asp-action="GetStatistics" class="btn btn-dark custom-btn">
+                Statistika
+            </a>
+            <a asp-controller="Product" asp-action="GetAllProducts" class="btn btn-dark custom-btn">
+                Товарлар
+            </a>
+            <a asp-controller="ProductGiver" asp-action="GetAllProductGivers" class="btn btn-dark custom-btn">
+                Юк Берувчилар
+            </a>
+            <a asp-controller="ProductTaker" asp-action="GetAllProductTakers" class="btn btn-dark custom-btn">
+                Юк Олувчилар
+            </a>
+        </div>
+    }
+
+</div>
+
+<style>
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .custom-btn {
+        color: black;
+        background-color: white;
+    }
+</style>
