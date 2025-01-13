@@ -7,9 +7,9 @@ using AutoMapper;
 
 namespace Alertify.Application.Common.Mappings
 {
-    public class ProductMapping : Profile
+    public class SmsManagerMapping : Profile
     {
-        public ProductMapping()
+        public SmsManagerMapping()
         {
             CreateMap<CreateSmsManagerCommand, SmsManager>().ReverseMap();
             CreateMap<UpdateSmsManagerCommand, SmsManager>().ReverseMap();

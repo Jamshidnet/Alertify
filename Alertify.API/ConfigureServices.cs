@@ -31,6 +31,7 @@ namespace Alertify.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1" });
 
             });
+          
             return services;
         }
     }
