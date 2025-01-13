@@ -8,41 +8,33 @@
 
   <ItemGroup>
     <Compile Remove="Views\Expense\**" />
-    <Compile Remove="Views\Home\**" />
     <Compile Remove="Views\Payment\**" />
     <Compile Remove="Views\ProductGiver\**" />
     <Compile Remove="Views\ProductTaker\**" />
     <Compile Remove="Views\Product\**" />
     <Compile Remove="Views\Purchase\**" />
     <Compile Remove="Views\Report\**" />
-    <Compile Remove="Views\Shared\**" />
     <Content Remove="Views\Expense\**" />
-    <Content Remove="Views\Home\**" />
     <Content Remove="Views\Payment\**" />
     <Content Remove="Views\ProductGiver\**" />
     <Content Remove="Views\ProductTaker\**" />
     <Content Remove="Views\Product\**" />
     <Content Remove="Views\Purchase\**" />
     <Content Remove="Views\Report\**" />
-    <Content Remove="Views\Shared\**" />
     <EmbeddedResource Remove="Views\Expense\**" />
-    <EmbeddedResource Remove="Views\Home\**" />
     <EmbeddedResource Remove="Views\Payment\**" />
     <EmbeddedResource Remove="Views\ProductGiver\**" />
     <EmbeddedResource Remove="Views\ProductTaker\**" />
     <EmbeddedResource Remove="Views\Product\**" />
     <EmbeddedResource Remove="Views\Purchase\**" />
     <EmbeddedResource Remove="Views\Report\**" />
-    <EmbeddedResource Remove="Views\Shared\**" />
     <None Remove="Views\Expense\**" />
-    <None Remove="Views\Home\**" />
     <None Remove="Views\Payment\**" />
     <None Remove="Views\ProductGiver\**" />
     <None Remove="Views\ProductTaker\**" />
     <None Remove="Views\Product\**" />
     <None Remove="Views\Purchase\**" />
     <None Remove="Views\Report\**" />
-    <None Remove="Views\Shared\**" />
   </ItemGroup>
 
   <ItemGroup>
