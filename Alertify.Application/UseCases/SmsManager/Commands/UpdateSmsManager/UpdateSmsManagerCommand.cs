@@ -9,6 +9,11 @@ namespace Alertify.Application.UseCases.SmsManagers.Commands.UpdateSmsManager
     {
         public int Id { get; set; }
         public int TemplateId { get; set; }
+        public int UserId { get; set; }
+        public int OrganizationId { get; set; }
+        public int TotalCount { get; set; }
+        public int SuccessCount { get; set; }
+        public int StatusId { get; set; }
     }
 
     public class UpdateSmsManagerCommandHandler : IRequestHandler<UpdateSmsManagerCommand>

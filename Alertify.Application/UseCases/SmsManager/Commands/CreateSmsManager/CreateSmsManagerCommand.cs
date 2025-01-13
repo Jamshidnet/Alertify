@@ -10,7 +10,11 @@ namespace Alertify.Application.UseCases.SmsManagers.Commands.CreateSmsManager
     public class CreateSmsManagerCommand : IRequest<int>
     {
         public int TemplateId { get; set; }
-        public List<IFormFile> Files { get; set; }
+        public int UserId { get; set; }
+        public int OrganizationId { get; set; }
+        public int TotalCount { get; set; }
+        public int SuccessCount { get; set; }
+        public int StatusId { get; set; }
     }
 
     public class CreateSmsManagerCommandHandler : IRequestHandler<CreateSmsManagerCommand, int>
