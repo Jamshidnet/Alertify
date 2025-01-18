@@ -17,5 +17,9 @@ namespace Alertify.Domain.Entities
         public int RegionId { get; set; }
         public int DistrictId { get; set; }
         public int OrganizationClassificationId { get; set; }
+
+        public Region Region { get; set; }
+        public District District { get; set; }
+        public OrganizationClassification OrganizationClassification { get; set; }
     }
 }
