@@ -31,13 +31,25 @@
 
            <li class="nav-item" style="margin-right:30px;">
                 <a class="nav-link text-white-50" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Чиқиш</a>
-             </li>
+           </li>
 
          </div>
     }
     else
     {
         <div style="display:flex; justify-content:space-around; gap:10px;">
+        <li class="nav-item" style="margin-right:20px;">
+            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item" style="margin-right:20px;">
+            <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <li class="nav-item" style="margin-right:20px;">
+            <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item" style="margin-right:20px;">
+            <a class="nav-link" href="#contact">Contact</a>
+        </li>
               <li class="nav-item" style="margin-right:20px;">
                  <a class="nav-link text-white-50" asp-area="Identity" asp-page="/Account/Login">Кириш</a>
               </li>

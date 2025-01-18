@@ -15,7 +15,7 @@
         <img src="/5.png" class="logoStyle"/>
     </div>
 
-     @if (User.IsInRole("Admin"))
+    @if (User.IsInRole("Admin"))
     {
     @*     <div class="button-container">
             <a asp-controller="Report" asp-action="GetStatistics" class="btn btn-dark custom-btn">
@@ -45,3 +45,34 @@
         background-color: white;
     }
 </style>
+
+<section id="about" class="section">
+    <h2>About Us</h2>
+    <p>
+        We are a leading SMS service provider dedicated to helping businesses connect with their customers effectively.
+        Our platform offers reliable and efficient messaging solutions tailored to meet your specific needs.
+    </p>
+</section>
+
+<section id="services" class="section">
+    <h2>Our Services</h2>
+    <ul>
+        <li>Bulk SMS Messaging</li>
+        <li>Two-Way SMS Communication</li>
+        <li>SMS API Integration</li>
+        <li>Custom SMS Solutions</li>
+    </ul>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>
+        If you have any questions or inquiries, please feel free to contact us.
+    </p>
+    <p>
+        Email: <a href="mailto:info@example.com">info@example.com</a>
+    </p>
+    <p>
+        Phone: +1234567890
+    </p>
+</section>
