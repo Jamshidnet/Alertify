@@ -57,4 +57,9 @@
     <ProjectReference Include="..\Alertify.Infrastructure\Alertify.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\SmsManager\" />
+    <Folder Include="Views\MessageLog\" />
+  </ItemGroup>
+
 </Project>
