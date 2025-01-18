@@ -17,9 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 <body>
-
       <div class="navbar-container">
-@*            @if (User.Identity.IsAuthenticated)
+           @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
            {
                 <nav class="navbar navbar-expand-sm navbar-dark bg-black">
                     <ul class="navbar-nav ml-auto ">
@@ -28,44 +27,37 @@
                            <i class="fa fa-home" style="font-size:30px;color:white"></i>
                        </a>
                    </li>
-                   <li class="nav-item mb-2">
-                       <a asp-controller="Purchase" asp-action="GetAllOwnPurchases" class="nav-link">
-                           <div class="name-wrapper">
-                              Юк олдим
-                           </div>
-                       </a>
-                   </li>
-                   <li class="nav-item mb-2">
-                       <a asp-controller="Purchase" asp-action="GetAllClientPurchases" class="nav-link">
-                           <div class="name-wrapper">
-                               Юк бердим
-                           </div>
-                       </a>
-                   </li>
-                   <li class="nav-item mb-2">
-                       <a asp-controller="Payment" asp-action="GetAllClientPayments" class="nav-link">
-                           <div class="name-wrapper">
-                               Пул олдим
-                           </div>
-                       </a>
-                   </li>
-                   <li class="nav-item mb-2">
-                       <a asp-controller="Payment" asp-action="GetAllOwnPayments" class="nav-link">
-                           <div class="name-wrapper">
-                               Пул бердим
-                           </div>
-                       </a>
-                   </li>
-                   <li class="nav-item mb-2">
-                       <a asp-controller="Expense" asp-action="GetAllExpenses" class="nav-link">
-                           <div class="name-wrapper">
-                               Харажатлар
-                           </div>
-                       </a>
-                   </li>
+                    <li class="nav-item mb-2">
+                        <a asp-controller="Template" asp-action="GetAllTemplates" class="nav-link">
+                            <div class="name-wrapper">
+                                Templates
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a asp-controller="Organization" asp-action="GetOrganizationById" class="nav-link">
+                            <div class="name-wrapper">
+                                Organization
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a asp-controller="Balance" asp-action="GetBalanceByOrganizationId" class="nav-link">
+                            <div class="name-wrapper">
+                                Balance/Limits
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a asp-controller="MessageLog" asp-action="GetMessageLogByOrganizationId" class="nav-link">
+                            <div class="name-wrapper">
+                                MessagesHistory
+                            </div>
+                        </a>
+                    </li>
                </ul>
-                </nav>
-           } *@
+               </nav>
+           }
 
           <div  style="display:flex; align-items:center; justify-content:space-between;">
               <ul class="navbar-nav">

@@ -12,25 +12,39 @@
 <div class="text-center" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
 
     <div class="d-flex align-items-center justify-content-center" id="main">
-        <img src="/5.png" class="logoStyle"/>
+        <img src="/5.jpg" class="logoStyle"/>
     </div>
 
     @if (User.IsInRole("Admin"))
     {
-    @*     <div class="button-container">
-            <a asp-controller="Report" asp-action="GetStatistics" class="btn btn-dark custom-btn">
-                Statistika
-            </a>
-            <a asp-controller="Product" asp-action="GetAllProducts" class="btn btn-dark custom-btn">
-                Товарлар
-            </a>
-            <a asp-controller="ProductGiver" asp-action="GetAllProductGivers" class="btn btn-dark custom-btn">
-                Юк Берувчилар
-            </a>
-            <a asp-controller="ProductTaker" asp-action="GetAllProductTakers" class="btn btn-dark custom-btn">
-                Юк Олувчилар
-            </a>
-        </div> *@
+         <div class="button-container">
+             <a asp-controller="Organization" asp-action="GetAllOrganizations" class="btn btn-dark custom-btn">
+                 Organizations
+             </a>
+             <a asp-controller="SmsTemplate" asp-action="GetAllSmsTemplatesByCompanyId" class="btn btn-dark custom-btn">
+                 SmsTemplates
+             </a>
+             <a asp-controller="MessageLog" asp-action="GetAllMessageLogsByCompanyId" class="btn btn-dark custom-btn">
+                 Statistics
+             </a>
+         </div>
+    }
+    @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+    {
+        <div class="button-container">
+             <a asp-controller="Organization" asp-action="GetAllOrganizations" class="btn btn-dark custom-btn">
+                 Organizations
+             </a>
+            <a asp-controller="OrganizationClassification" asp-action="GetAlOrganizationClassifications" class="btn btn-dark custom-btn">
+                OrganizationClassification
+             </a>
+             <a asp-controller="SmsTemplate" asp-action="GetAllSmsTemplates" class="btn btn-dark custom-btn">
+                 SmsTemplates
+             </a>
+             <a asp-controller="MessageLog" asp-action="GetAllMessageLogs" class="btn btn-dark custom-btn">
+                 Statistics
+             </a>
+         </div>
     }
 
 </div>
