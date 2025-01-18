@@ -3,6 +3,7 @@ using System;
 using Alertify.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Alertify.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250118145318_regions")]
+    partial class regions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,7 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -43,7 +46,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -146,13 +149,13 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -190,7 +193,7 @@ namespace Alertify.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -206,7 +209,7 @@ namespace Alertify.Infrastructure.Migrations
                     b.Property<string>("Inn")
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -244,7 +247,7 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -254,7 +257,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -277,7 +280,7 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -287,7 +290,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -310,13 +313,13 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -357,7 +360,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -367,7 +370,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -393,7 +396,7 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -403,7 +406,7 @@ namespace Alertify.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")
@@ -426,7 +429,7 @@ namespace Alertify.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
@@ -438,7 +441,7 @@ namespace Alertify.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime?>("LastModifiedAt")
+                    b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("LastModifiedBy")

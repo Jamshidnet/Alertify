@@ -47,13 +47,13 @@ namespace Alertify.Infrastructure.Persistence.Interceptors
                 if (entry.State == EntityState.Added)
                 {
                     entry.Entity.CreatedBy = _user.Id;
-                    entry.Entity.Created = _dateTime.Now;
+                    entry.Entity.CreatedAt = _dateTime.Now;
                 }
 
                 if (entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.HasChangedOwnedEntities())
                 {
                     entry.Entity.LastModifiedBy = _user.Id;
-                    entry.Entity.LastModified = _dateTime.Now;
+                    entry.Entity.LastModifiedAt = _dateTime.Now;
                 }
             }
         }

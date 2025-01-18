@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,11 @@ namespace Alertify.Domain.Entities
         public int DistrictId { get; set; }
         public int OrganizationClassificationId { get; set; }
 
-        public Region Region { get; set; }
-        public District District { get; set; }
-        public OrganizationClassification OrganizationClassification { get; set; }
+        [ForeignKey(nameof(RegionId))]
+        public virtual Region Region { get; set; }
+        [ForeignKey(nameof(DistrictId))]
+        public virtual District District { get; set; }
+        [ForeignKey(nameof(OrganizationClassificationId))]
+        public virtual OrganizationClassification OrganizationClassification { get; set; }
     }
 }
