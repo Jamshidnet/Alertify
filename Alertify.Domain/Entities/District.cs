@@ -12,5 +12,6 @@ namespace Alertify.Domain.Entities
         public string ShortName { get; set; }
         public string FullName { get; set; }
         public int RegionId { get; set; }
+        public Region Region { get; set; }
     }
 }
