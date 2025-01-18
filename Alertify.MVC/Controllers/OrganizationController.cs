@@ -1,8 +1,14 @@
-﻿using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization;
+﻿using Alertify.Application.UseCases.Districts;
+using Alertify.Application.UseCases.Districts.Queries.GetAllDistricts;
+using Alertify.Application.UseCases.OrganizationClassifications;
+using Alertify.Application.UseCases.OrganizationClassifications.Queries.GetAllOrganizationClassifications;
+using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization;
 using Alertify.Application.UseCases.Organizations.Commands.DeleteOrganization;
 using Alertify.Application.UseCases.Organizations.Commands.UpdateOrganization;
 using Alertify.Application.UseCases.Organizations.Queries.GetAllOrganizations;
 using Alertify.Application.UseCases.Organizations.Queries.GetOrganizationById;
+using Alertify.Application.UseCases.Regions;
+using Alertify.Application.UseCases.Regions.Queries.GetAllRegions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +20,15 @@ namespace Alertify.MVC.Controllers
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> CreateOrganization()
         {
+            RegionResponse[] regions = await Mediator.Send(new GetAllRegionsQuery());
+            ViewData["Regions"] = regions;
+
+            DistrictResponse[] districts = await Mediator.Send(new GetAllDistrictsQuery());
+            ViewData["Districts"] = districts;
+
+            OrganizationClassificationResponse[] organizationClassifications = await Mediator.Send(new GetAllOrganizationClassificationsQuery());
+            ViewData["OrganizationClassifications"] = organizationClassifications;
+
             return View();
         }
 

@@ -8,9 +8,9 @@
         public int OrganizationId { get; set; }
         public string RecieverPhoneNumber { get; set; }
         public string? RecieverFullName { get; set; }
-        public DateTime Created { get; set; }
+        public DateTime CreatedAt { get; set; }
         public string? CreatedBy { get; set; }
-        public DateTime? LastModified { get; set; }
+        public DateTime? LastModifiedAt { get; set; }
         public string? LastModifiedBy { get; set; }
     }
 }

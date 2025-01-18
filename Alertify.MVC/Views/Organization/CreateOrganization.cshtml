@@ -1,9 +1,15 @@
-﻿@using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization;
+﻿@using Alertify.Application.UseCases.Districts
+@using Alertify.Application.UseCases.OrganizationClassifications
+@using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization;
+@using Alertify.Application.UseCases.Regions
 @using Alertify.Domain.Entities;
 
 @{
     ViewData["Title"] = "Create Organization";
     Layout = "_Layout";
+    RegionResponse[] Regions = ViewData["Regions"] as RegionResponse[];
+    DistrictResponse[] Districts = ViewData["Districts"] as DistrictResponse[];
+    OrganizationClassificationResponse[] OrganizationClassifications = ViewData["OrganizationClassifications"] as OrganizationClassificationResponse[];
 }
 
 @model CreateOrganizationCommand
@@ -45,41 +51,56 @@
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
 
-                <div class="form-group pt-3">
-                    <label asp-for="RegionId">Вилоят:</label>
-                    <select asp-for="RegionId" class="form-control" required>
+                <div class="form-group mt-3">
+                    <label for="RegionId">Вилоят:</label>
+                    <select class="form-control" id="RegionId" name="RegionId" required>
                         <option value="">Вилоят танланг</option>
-                        @foreach (var region in ViewBag.Regions)
+                        @foreach (var region in Regions)
                         {
-                            <option value="@region.Id">@region.Name</option>
+                            <option value="@region.Id">@region.FullName</option>
                         }
                     </select>
-                    <span asp-validation-for="RegionId" class="text-danger"></span>
                 </div>
 
-                <div class="form-group pt-3">
-                    <label asp-for="DistrictId">Туман:</label>
-                    <select asp-for="DistrictId" class="form-control" required>
+                <script>
+                    $(document).ready(function () {
+                        $('#RegionId').select2();
+                    });
+                </script>
+
+                <div class="form-group mt-3">
+                    <label for="DistrictId">Туман:</label>
+                    <select class="form-control" id="DistrictId" name="DistrictId" required>
                         <option value="">Туман танланг</option>
-                        @foreach (var district in ViewBag.Districts)
+                        @foreach (var district in Districts)
                         {
-                            <option value="@district.Id">@district.Name</option>
+                            <option value="@district.Id">@district.FullName</option>
                         }
                     </select>
-                    <span asp-validation-for="DistrictId" class="text-danger"></span>
                 </div>
 
-                <div class="form-group pt-3">
-                    <label asp-for="OrganizationClassificationId">Ташкилот Классификацияси:</label>
-                    <select asp-for="OrganizationClassificationId" class="form-control" required>
-                        <option value="">Классификация танланг</option>
-                        @foreach (var classification in ViewBag.Classifications)
+                <script>
+                    $(document).ready(function () {
+                        $('#DistrictId').select3();
+                    });
+                </script>
+
+                <div class="form-group mt-3">
+                    <label for="OrganizationClassificationId">Соҳа:</label>
+                    <select class="form-control" id="OrganizationClassificationId" name="OrganizationClassificationId" required>
+                        <option value="">Соҳани танланг</option>
+                        @foreach (var OrganizationClassification in OrganizationClassifications)
                         {
-                            <option value="@classification.Id">@classification.Name</option>
+                            <option value="@OrganizationClassification.Id">@OrganizationClassification.FullName</option>
                         }
                     </select>
-                    <span asp-validation-for="OrganizationClassificationId" class="text-danger"></span>
                 </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#OrganizationClassificationId').select4();
+                    });
+                </script>
 
                 <div class="form-group button-group mt-3">
                     <button type="submit" class="btn btn-success">Сақлаш</button>
@@ -92,8 +113,72 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function () {
-        $('select').select2();
+        $('#RegionId').select2({
+            placeholder: "Вилоят танланг",
+            allowClear: true,
+            matcher: function (params, data) {
+                if ($.trim(params.term) === '') {
+                    return data;
+                }
+
+                var term = $.trim(params.term).toLowerCase();
+                var text = data.text.toLowerCase();
+
+                if (text.indexOf(term) > -1) {
+                    return data;
+                }
+
+                return null;
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#DistrictId').select3({
+            placeholder: "Туман танланг",
+            allowClear: true,
+            matcher: function (params, data) {
+                if ($.trim(params.term) === '') {
+                    return data;
+                }
+
+                var term = $.trim(params.term).toLowerCase();
+                var text = data.text.toLowerCase();
+
+                if (text.indexOf(term) > -1) {
+                    return data;
+                }
+
+                return null;
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#OrganizationClassificationId').select4({
+            placeholder: "Соҳани танланг",
+            allowClear: true,
+            matcher: function (params, data) {
+                if ($.trim(params.term) === '') {
+                    return data;
+                }
+
+                var term = $.trim(params.term).toLowerCase();
+                var text = data.text.toLowerCase();
+
+                if (text.indexOf(term) > -1) {
+                    return data;
+                }
+
+                return null;
+            }
+        });
     });
 </script>
