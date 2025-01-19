@@ -49,6 +49,9 @@ namespace Alertify.MVC.Controllers
         {
             var SmsTemplate = await Mediator.Send(new GetSmsTemplateByIdQuery(Id));
 
+            OrganizationResponse[] Organizations = await Mediator.Send(new GetAllOrganizationsQuery());
+            ViewData["Organizations"] = Organizations;
+
             return View(SmsTemplate);
         }
 
