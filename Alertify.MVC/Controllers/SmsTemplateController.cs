@@ -1,4 +1,6 @@
-﻿using Alertify.Application.UseCases.SmsTemplates.Commands.CreateSmsTemplate;
+﻿using Alertify.Application.UseCases.Organizations;
+using Alertify.Application.UseCases.Organizations.Queries.GetAllOrganizations;
+using Alertify.Application.UseCases.SmsTemplates.Commands.CreateSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Commands.DeleteSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Commands.UpdateSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Queries.GetAllSmsTemplates;
@@ -14,6 +16,9 @@ namespace Alertify.MVC.Controllers
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> CreateSmsTemplate()
         {
+            OrganizationResponse[] Organizations = await Mediator.Send(new GetAllOrganizationsQuery());
+            ViewData["Organizations"] = Organizations;
+
             return View();
         }
 
