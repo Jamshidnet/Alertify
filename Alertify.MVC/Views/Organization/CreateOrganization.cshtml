@@ -1,8 +1,8 @@
 ﻿@using Alertify.Application.UseCases.Districts
 @using Alertify.Application.UseCases.OrganizationClassifications
-@using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization;
+@using Alertify.Application.UseCases.Organizations.Commands.CreateOrganization
 @using Alertify.Application.UseCases.Regions
-@using Alertify.Domain.Entities;
+@using Alertify.Domain.Entities
 
 @{
     ViewData["Title"] = "Create Organization";
@@ -62,12 +62,6 @@
                     </select>
                 </div>
 
-                <script>
-                    $(document).ready(function () {
-                        $('#RegionId').select2();
-                    });
-                </script>
-
                 <div class="form-group mt-3">
                     <label for="DistrictId">Туман:</label>
                     <select class="form-control" id="DistrictId" name="DistrictId" required>
@@ -78,12 +72,6 @@
                         }
                     </select>
                 </div>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#DistrictId').select3();
-                    });
-                </script>
 
                 <div class="form-group mt-3">
                     <label for="OrganizationClassificationId">Соҳа:</label>
@@ -96,12 +84,6 @@
                     </select>
                 </div>
 
-                <script>
-                    $(document).ready(function () {
-                        $('#OrganizationClassificationId').select4();
-                    });
-                </script>
-
                 <div class="form-group button-group mt-3">
                     <button type="submit" class="btn btn-success">Сақлаш</button>
                 </div>
@@ -111,74 +93,29 @@
     </div>
 </form>
 
+<!-- Include Select2 CSS and JS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('#RegionId').select2({
-            placeholder: "Вилоят танланг",
-            allowClear: true,
-            matcher: function (params, data) {
-                if ($.trim(params.term) === '') {
-                    return data;
+        function initializeSelect2(selector, placeholder) {
+            $(selector).select2({
+                placeholder: placeholder,
+                allowClear: true,
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+                    var term = $.trim(params.term).toLowerCase();
+                    var text = data.text.toLowerCase();
+                    return text.indexOf(term) > -1 ? data : null;
                 }
+            });
+        }
 
-                var term = $.trim(params.term).toLowerCase();
-                var text = data.text.toLowerCase();
-
-                if (text.indexOf(term) > -1) {
-                    return data;
-                }
-
-                return null;
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $('#DistrictId').select3({
-            placeholder: "Туман танланг",
-            allowClear: true,
-            matcher: function (params, data) {
-                if ($.trim(params.term) === '') {
-                    return data;
-                }
-
-                var term = $.trim(params.term).toLowerCase();
-                var text = data.text.toLowerCase();
-
-                if (text.indexOf(term) > -1) {
-                    return data;
-                }
-
-                return null;
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $('#OrganizationClassificationId').select4({
-            placeholder: "Соҳани танланг",
-            allowClear: true,
-            matcher: function (params, data) {
-                if ($.trim(params.term) === '') {
-                    return data;
-                }
-
-                var term = $.trim(params.term).toLowerCase();
-                var text = data.text.toLowerCase();
-
-                if (text.indexOf(term) > -1) {
-                    return data;
-                }
-
-                return null;
-            }
-        });
+        initializeSelect2('#RegionId', "Вилоят танланг");
+        initializeSelect2('#DistrictId', "Туман танланг");
+        initializeSelect2('#OrganizationClassificationId', "Соҳани танланг");
     });
 </script>
