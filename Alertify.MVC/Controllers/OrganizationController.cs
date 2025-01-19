@@ -59,6 +59,15 @@ namespace Alertify.MVC.Controllers
         {
             var Organization = await Mediator.Send(new GetOrganizationByIdQuery(Id));
 
+            RegionResponse[] regions = await Mediator.Send(new GetAllRegionsQuery());
+            ViewData["Regions"] = regions;
+
+            DistrictResponse[] districts = await Mediator.Send(new GetAllDistrictsQuery());
+            ViewData["Districts"] = districts;
+
+            OrganizationClassificationResponse[] organizationClassifications = await Mediator.Send(new GetAllOrganizationClassificationsQuery());
+            ViewData["OrganizationClassifications"] = organizationClassifications;
+
             return View(Organization);
         }
 
@@ -66,6 +75,7 @@ namespace Alertify.MVC.Controllers
         public async ValueTask<IActionResult> UpdateOrganization([FromForm] UpdateOrganizationCommand Organization)
         {
             await Mediator.Send(Organization);
+
             return RedirectToAction("GetAllOrganizations");
         }
 
