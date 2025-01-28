@@ -19,6 +19,6 @@ namespace Alertify.Domain.Entities
         public int StatusId { get; set; }
 
         [ForeignKey(nameof(TemplateId))]
-        public SmsTemplate SmsTemplate { get; set; }
+        public virtual SmsTemplate SmsTemplate { get; set; }
     }
 }

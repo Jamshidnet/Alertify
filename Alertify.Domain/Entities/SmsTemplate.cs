@@ -18,6 +18,6 @@ namespace Alertify.Domain.Entities
         public long TemplateId { get; set; }
 
         [ForeignKey(nameof(OrganizationId))]
-        public Organization Organization { get; set; }
+        public virtual Organization Organization { get; set; }
     }
 }

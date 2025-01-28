@@ -16,6 +16,6 @@ namespace Alertify.Domain.Entities
         public bool IsDeleted  { get; set; }
 
         [ForeignKey(nameof(SmsManagerId))]
-        public SmsManager SmsManager { get; set; }
+        public virtual SmsManager SmsManager { get; set; }
     }
 }
