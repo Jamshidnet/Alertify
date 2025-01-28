@@ -18,6 +18,9 @@ namespace Alertify.Domain.Entities
         public int RegionId { get; set; }
         public int DistrictId { get; set; }
         public int OrganizationClassificationId { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+        public string? SecretKey { get; set; }
 
         [ForeignKey(nameof(RegionId))]
         public virtual Region Region { get; set; }

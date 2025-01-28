@@ -7,6 +7,7 @@
         public string FullName { get; set; }
         public string Code { get; set; }
         public int OrganizationId { get; set; }
+        public string Message { get; set; }
         public long TemplateId { get; set; }
         public DateTime Created { get; set; }
         public string? CreatedBy { get; set; }
