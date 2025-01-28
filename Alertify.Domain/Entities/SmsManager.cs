@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,8 @@ namespace Alertify.Domain.Entities
         public int TotalCount { get; set; }
         public int SuccessCount { get; set; }
         public int StatusId { get; set; }
+
+        [ForeignKey(nameof(TemplateId))]
+        public SmsTemplate SmsTemplate { get; set; }
     }
 }

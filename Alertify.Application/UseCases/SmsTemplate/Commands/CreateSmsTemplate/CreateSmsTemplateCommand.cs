@@ -13,6 +13,7 @@ namespace Alertify.Application.UseCases.SmsTemplates.Commands.CreateSmsTemplate
         public string FullName { get; set; }
         public string Code { get; set; }
         public int OrganizationId { get; set; }
+        public long TemplateId { get; set; }
     }
 
     public class CreateSmsTemplateCommandHandler : IRequestHandler<CreateSmsTemplateCommand, int>

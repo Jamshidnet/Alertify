@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,8 @@ namespace Alertify.Domain.Entities
         public int OrganizationId  { get; set; }
         public string RecieverPhoneNumber { get; set; }
         public string? RecieverFullName  { get; set; }
+
+        [ForeignKey(nameof(OrganizationId))]
+        public virtual Organization Organization { get; set; }
     }
 }

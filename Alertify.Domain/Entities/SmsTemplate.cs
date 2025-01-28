@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,8 @@ namespace Alertify.Domain.Entities
         public string Code { get; set; }
         public int OrganizationId { get; set; }
         public long TemplateId { get; set; }
+
+        [ForeignKey(nameof(OrganizationId))]
+        public Organization Organization { get; set; }
     }
 }
