@@ -15,6 +15,7 @@ namespace Alertify.Domain.Entities
         public int OrganizationId  { get; set; }
         public string RecieverPhoneNumber { get; set; }
         public string? RecieverFullName  { get; set; }
+        public string? SmsMessage  { get; set; }
 
         [ForeignKey(nameof(OrganizationId))]
         public virtual Organization Organization { get; set; }
