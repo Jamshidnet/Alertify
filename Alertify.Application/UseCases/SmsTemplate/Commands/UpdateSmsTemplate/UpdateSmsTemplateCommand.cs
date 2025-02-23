@@ -10,8 +10,8 @@ namespace Alertify.Application.UseCases.SmsTemplates.Commands.UpdateSmsTemplate
         public int Id { get; set; }
         public string ShortName { get; set; }
         public string FullName { get; set; }
-        public string Code { get; set; }
         public string Message { get; set; }
+        public string Code { get; set; }
         public long TemplateId { get; set; }
         public int OrganizationId { get; set; }
     }

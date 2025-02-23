@@ -32,6 +32,12 @@
                 </div>
 
                 <div class="form-group mt-3">
+                    <label asp-for="Message" class="form-label">Message:</label>
+                    <input asp-for="Message" type="text" class="form-control" placeholder="Enter Message">
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
                     <label asp-for="Code" class="form-label">Code:</label>
                     <input asp-for="Code" type="text" class="form-control" placeholder="Enter code">
                     <span asp-validation-for="Code" class="text-danger"></span>

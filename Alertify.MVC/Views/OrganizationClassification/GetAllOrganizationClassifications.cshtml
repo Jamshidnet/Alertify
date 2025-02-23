@@ -38,7 +38,6 @@
                     <table id="OrganizationClassificationsTable" class="table">
                         <thead>
                             <tr>
-                                <th class="columnName">Aмаллар</th>
                                 <th data-column="ShortName" class="columnName">Қисқа ном</th>
                                 <th data-column="FullName" class="columnName">Тўлиқ ном</th>
                             </tr>
@@ -47,16 +46,6 @@
                             @foreach (var org in Model)
                             {
                                 <tr>
-                                    <td class="action-links">
-                                        <div style="display:flex; gap:5px">
-                                            <a href="@Url.Action("UpdateOrganizationClassifications", new { id = org.Id })" class="btn btn-secondary">
-                                                ✏️
-                                            </a>
-                                            <a href="@Url.Action("DeleteOrganizationClassifications", new { id = org.Id })" class="btn btn-danger">
-                                                ❌
-                                            </a>
-                                        </div>
-                                    </td>
                                     <td>@org.ShortName</td>
                                     <td>@org.FullName</td>
                                 </tr>
