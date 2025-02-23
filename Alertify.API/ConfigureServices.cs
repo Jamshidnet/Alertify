@@ -1,9 +1,9 @@
-﻿using Alertify.Application.Common.Interfaces;
+﻿using System.Text.Json.Serialization;
+using Alertify.Application.Common.Interfaces;
 using Alertify.Domain.Entities.Identity;
 using Alertify.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
-using System.Text.Json.Serialization;
 
 namespace Alertify.API
 {
@@ -31,7 +31,7 @@ namespace Alertify.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1" });
 
             });
-          
+
             return services;
         }
     }

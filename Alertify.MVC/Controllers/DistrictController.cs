@@ -1,5 +1,4 @@
 ﻿using Alertify.Application.UseCases.Districts.Queries.GetAllDistricts;
-using Alertify.Application.UseCases.Districts.Queries.GetDistrictById;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

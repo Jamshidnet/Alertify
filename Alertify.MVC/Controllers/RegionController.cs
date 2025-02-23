@@ -1,5 +1,4 @@
 ﻿using Alertify.Application.UseCases.Regions.Queries.GetAllRegions;
-using Alertify.Application.UseCases.Regions.Queries.GetRegionById;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

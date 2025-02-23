@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alertify.Application.Common.Interfaces;
+﻿using Alertify.Application.Common.Interfaces;
 using Alertify.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 
 namespace Alertify.Infrastructure.Persistence.Interceptors
 {

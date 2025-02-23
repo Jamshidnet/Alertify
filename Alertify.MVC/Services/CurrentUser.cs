@@ -1,5 +1,5 @@
-﻿using Alertify.Application.Common.Interfaces;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using Alertify.Application.Common.Interfaces;
 
 namespace Alertify.MVC.Services;
 

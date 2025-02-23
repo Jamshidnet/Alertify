@@ -2,10 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using Alertify.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -73,8 +70,8 @@ namespace Alertify.MVC.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,
-                FirstName=user.FirstName,
-                LastName=user.LastName
+                FirstName = user.FirstName,
+                LastName = user.LastName
             };
         }
 
@@ -116,8 +113,8 @@ namespace Alertify.MVC.Areas.Identity.Pages.Account.Manage
             }
             if (Input.FirstName != user.FirstName)
             {
-                user.FirstName=Input.FirstName;
-               await _userManager.UpdateAsync(user);
+                user.FirstName = Input.FirstName;
+                await _userManager.UpdateAsync(user);
             }
             if (Input.LastName != user.LastName)
             {

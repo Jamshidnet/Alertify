@@ -1,5 +1,4 @@
 ﻿using Alertify.Domain.Entities;
-using Alertify.Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Alertify.Application.Common.Interfaces

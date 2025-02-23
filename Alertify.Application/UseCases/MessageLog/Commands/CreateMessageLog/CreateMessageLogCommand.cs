@@ -2,7 +2,6 @@
 using Alertify.Domain.Entities;
 using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 
 namespace Alertify.Application.UseCases.MessageLogs.Commands.CreateMessageLog
 {

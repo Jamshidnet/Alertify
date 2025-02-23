@@ -3,7 +3,6 @@ using Alertify.Application.UseCases.MessageLogs.Commands.CreateMessageLog;
 using Alertify.Application.UseCases.MessageLogs.Commands.DeleteMessageLog;
 using Alertify.Application.UseCases.MessageLogs.Queries.GetAllMessageLogs;
 using Alertify.Application.UseCases.MessageLogs.Queries.GetMessageLogById;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Alertify.API.Controllers

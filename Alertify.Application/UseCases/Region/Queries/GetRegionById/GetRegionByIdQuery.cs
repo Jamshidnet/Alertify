@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using Alertify.Application.Common.Exceptions;
+﻿using Alertify.Application.Common.Exceptions;
 using Alertify.Application.Common.Interfaces;
-using Alertify.Application.UseCases.Regions;
 using Alertify.Domain.Entities;
+using AutoMapper;
 using MediatR;
 
 namespace Alertify.Application.UseCases.Regions.Queries.GetRegionById

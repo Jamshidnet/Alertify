@@ -1,22 +1,16 @@
-﻿using Alertify.Application.UseCases.SmsTemplates.Commands.CreateSmsTemplate;
-using Alertify.Application.UseCases.SmsTemplates.Commands.DeleteSmsTemplate;
-using Alertify.Application.UseCases.SmsTemplates.Commands.UpdateSmsTemplate;
-using Alertify.Application.UseCases.SmsTemplates.Queries.GetAllSmsTemplates;
-using Alertify.Application.UseCases.SmsTemplates.Queries.GetSmsTemplateById;
-using Alertify.Application.UseCases.SmsTemplates;
+﻿using Alertify.Application.UseCases.SmsTemplates;
 using Alertify.Application.UseCases.SmsTemplates.Commands.CreateSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Commands.DeleteSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Commands.UpdateSmsTemplate;
 using Alertify.Application.UseCases.SmsTemplates.Queries.GetAllSmsTemplates;
 using Alertify.Application.UseCases.SmsTemplates.Queries.GetSmsTemplateById;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Alertify.API.Controllers
 {
-   /// <summary>
-   /// [Authorize(Roles = "Admin")]
-   /// </summary>
+    /// <summary>
+    /// [Authorize(Roles = "Admin")]
+    /// </summary>
     public class SmsTemplateController : ApiBaseController
     {
 

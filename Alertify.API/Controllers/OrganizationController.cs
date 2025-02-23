@@ -4,7 +4,6 @@ using Alertify.Application.UseCases.Organizations.Commands.DeleteOrganization;
 using Alertify.Application.UseCases.Organizations.Commands.UpdateOrganization;
 using Alertify.Application.UseCases.Organizations.Queries.GetAllOrganizations;
 using Alertify.Application.UseCases.Organizations.Queries.GetOrganizationById;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Alertify.API.Controllers

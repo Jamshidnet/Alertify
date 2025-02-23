@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using Alertify.Application.Common.Interfaces;
-using Alertify.Application.UseCases.Districts;
+﻿using Alertify.Application.Common.Interfaces;
+using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

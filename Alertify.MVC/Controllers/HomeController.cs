@@ -1,6 +1,6 @@
-﻿using Alertify.MVC.Models;
+﻿using System.Diagnostics;
+using Alertify.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Alertify.MVC.Controllers
 {

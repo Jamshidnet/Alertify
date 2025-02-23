@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using Alertify.Application.Common.Exceptions;
+﻿using Alertify.Application.Common.Exceptions;
 using Alertify.Application.Common.Interfaces;
-using Alertify.Application.UseCases.Organizations;
 using Alertify.Domain.Entities;
+using AutoMapper;
 using MediatR;
 
 namespace Alertify.Application.UseCases.Organizations.Queries.GetOrganizationById

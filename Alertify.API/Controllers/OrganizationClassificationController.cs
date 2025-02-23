@@ -1,7 +1,6 @@
 ﻿using Alertify.Application.UseCases.OrganizationClassifications;
 using Alertify.Application.UseCases.OrganizationClassifications.Queries.GetAllOrganizationClassifications;
 using Alertify.Application.UseCases.OrganizationClassifications.Queries.GetOrganizationClassificationById;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Alertify.API.Controllers

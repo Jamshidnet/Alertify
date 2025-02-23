@@ -2,8 +2,6 @@
 using Alertify.Infrastructure;
 using Alertify.Infrastructure.Persistence;
 using Alertify.MVC.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

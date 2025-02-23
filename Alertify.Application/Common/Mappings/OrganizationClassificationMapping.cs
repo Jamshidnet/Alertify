@@ -1,5 +1,4 @@
 ﻿using Alertify.Application.UseCases.OrganizationClassifications;
-using Alertify.Application.UseCases.Regions;
 using Alertify.Domain.Entities;
 using AutoMapper;
 

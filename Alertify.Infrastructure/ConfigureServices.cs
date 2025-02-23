@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Alertify.Application.Common.Interfaces;
-using Alertify.Infrastructure.Services;
+﻿using Alertify.Application.Common.Interfaces;
 using Alertify.Infrastructure.Persistence;
 using Alertify.Infrastructure.Persistence.Interceptors;
+using Alertify.Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Alertify.Infrastructure;
 
